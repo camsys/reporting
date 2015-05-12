@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.name        = "reporting"
   s.version     = Reporting::VERSION
   s.authors     = ["Xudong Liu"]
-  s.email       = ["xudong.camsys@gmail.com"]
-  s.homepage    = "https://github.com/xudongcamsys/reporting"
+  s.email       = ["xudongliu@camsys.com"]
+  s.homepage    = "https://github.com/camsys/reporting"
   s.summary     = "A basic and generic database querying and exporting engine."
   s.description = "A basic and generic database querying and exporting engine."
   s.license     = "MIT"

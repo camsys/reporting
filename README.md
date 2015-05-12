@@ -18,7 +18,7 @@ The following assumptions are made:
 ## Installation and Setup
 1. Add this line to your application's Gemfile
   
-  ```gem 'reporting', :github => 'xudongcamsys/reporting', :branch => 'master'```
+  ```gem 'reporting', :github => 'camsys/reporting', :branch => 'master'```
 2. Then execute
 
   ```$ bundle install```
