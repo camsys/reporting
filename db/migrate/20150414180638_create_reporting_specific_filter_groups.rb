@@ -8,7 +8,7 @@ class CreateReportingSpecificFilterGroups < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :reporting_specific_filter_groups, :report_id, name: 'index_of_report_on_specific_filter_group'
+    add_index :reporting_specific_filter_groups, :reporting_report_id, name: 'index_of_report_on_specific_filter_group'
     add_index :reporting_specific_filter_groups, :filter_group_id, name: 'index_of_filter_group_on_specific_filter_group'
 
     remove_reference :reporting_filter_groups, :report, index: true
