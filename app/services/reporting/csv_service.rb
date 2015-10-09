@@ -36,7 +36,7 @@ module Reporting
           @data.find_each do |row|
             y << fields.map { |field|
               format_output row.send(field[:name]), 
-                @report.data_model.columns_hash[field[:name].to_s].type,  
+                @report.data_model.columns_hash[field[:name].to_s].try(:type),  
                 field[:formatter]
             }.to_csv
           end

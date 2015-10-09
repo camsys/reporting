@@ -13,23 +13,47 @@ module Reporting
       @q = @report.data_model.ransack q_param
       @params = {q: q_param}
 
-      # list all output fields
-      # if output_fields is empty, then export all columns in this table
-      @fields = @report.output_fields.blank? ?
-        @report.data_model.column_names.map{
-          |x| {
-            name: x 
-          }
-        } : @report.output_fields
-
       # default order by :id
       if !@report.data_model.columns_hash.keys.index("id").nil? 
         @q.sorts = "id asc" if @q.sorts.empty?
       end
 
       # total_results is for exporting
-      total_results = @q.result(:district => true)
-      
+      total_results = @q.result
+
+      # list all output fields
+      # if output_fields is empty, then export all columns in this table
+      if @report.output_fields.blank?
+        @fields = @report.data_model.column_names.map{
+          |x| {
+            name: x 
+          }
+        }
+      else
+        @fields = []
+        @report.output_fields.order(:sort_order, :id).each do |output_field| 
+          alias_name = output_field.alias_name.try(:downcase)
+          if alias_name
+            total_results = total_results.select(output_field.name + " as " + alias_name)
+          else
+            total_results = total_results.select(output_field.name)
+          end
+
+          if output_field.group_by
+            total_results = total_results.group(output_field.name)
+          end
+
+          @fields << {
+            name: alias_name || output_field.name,
+            title: output_field.title
+          }
+        end
+      end
+
+      if q_param[:s].present?
+        total_results = total_results.order(q_param[:s])
+      end
+
       # @results is for html display; only render current page
       @results = total_results.page(page).per(@per_page)
 
