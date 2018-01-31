@@ -3,7 +3,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../dummy/config/environment', __FILE__)
 require 'rspec/rails'
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 require 'database_cleaner'
 
 Dir[Reporting::Engine.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -12,7 +12,7 @@ ActiveRecord::Migration.check_pending!
 
 RSpec.configure do |config|
   # Make Factory Girl's methods available
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

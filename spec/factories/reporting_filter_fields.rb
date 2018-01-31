@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :reporting_filter_field, :class => 'Reporting::Field' do
     report nil
     filter_group nil

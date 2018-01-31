@@ -1,5 +1,5 @@
 module Reporting
-  class Report < ActiveRecord::Base
+  class Report < ApplicationRecord
     include Reporting::Modelable
 
     has_many :specific_filter_groups

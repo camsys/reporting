@@ -6,7 +6,7 @@ module Reporting
 
     def make_a_reporting_model(model_class_name, table_name, primary_key = 'id')
       if !Object.const_defined?(model_class_name)
-        klass = Class.new ActiveRecord::Base do 
+        klass = Class.new ApplicationRecord do 
 
           # configure table/view name
           self.table_name = table_name

@@ -1,5 +1,5 @@
 module Reporting
-  class SpecificFilterGroup < ActiveRecord::Base
+  class SpecificFilterGroup < ApplicationRecord
     belongs_to :report
     belongs_to :filter_group
   end

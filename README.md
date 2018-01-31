@@ -27,9 +27,9 @@ The following assumptions are made:
   ```mount Reporting::Engine, at: "/reporting"```
 4. Database migrations
 
-  ```$ rake reporting:install:migrations```
+  ```$ rails reporting:install:migrations```
 
-  ```$ rake db:migrate```
+  ```$ rails db:migrate```
 
 ## License
 MIT

@@ -1,5 +1,5 @@
 module Reporting
-  class FilterField < ActiveRecord::Base
+  class FilterField < ApplicationRecord
     belongs_to :filter_group
     belongs_to :filter_type
     belongs_to :lookup_table

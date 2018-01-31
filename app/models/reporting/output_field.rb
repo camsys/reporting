@@ -1,5 +1,5 @@
 module Reporting
-  class OutputField < ActiveRecord::Base
+  class OutputField < ApplicationRecord
     belongs_to :report
 
     validates :name, presence: true

@@ -1,5 +1,5 @@
 module Reporting
-  class FilterGroup < ActiveRecord::Base
+  class FilterGroup < ApplicationRecord
     has_many :filter_fields
 
     has_many :specifc_filter_groups

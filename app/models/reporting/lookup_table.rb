@@ -1,5 +1,5 @@
 module Reporting
-  class LookupTable < ActiveRecord::Base
+  class LookupTable < ApplicationRecord
     include Reporting::Modelable
     
     has_many :filter_fields

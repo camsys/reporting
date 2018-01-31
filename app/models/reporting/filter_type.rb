@@ -1,5 +1,5 @@
 module Reporting
-  class FilterType < ActiveRecord::Base
+  class FilterType < ApplicationRecord
     ## 
     # Filter types include any operation types in Ransack
     # Plus, following types:
